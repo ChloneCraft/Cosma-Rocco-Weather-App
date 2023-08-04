@@ -30,13 +30,12 @@ export default function App() {
   }
   return (
     <>
+      <WeatherComponent changeWeather={changeWeather} />
       <List
         activities={activities}
         isGoodWeather={isGoodWeather}
-        changeActivities={changeActivities}
-      ></List>
+        changeActivities={changeActivities}></List>
       <Form handleAddActivity={handleAddActivity} />
-      <WeatherComponent changeWeather={changeWeather} />
     </>
   );
 }
