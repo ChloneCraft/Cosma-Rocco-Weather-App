@@ -2,12 +2,12 @@ import "./App.css";
 import Form from "./components/Form/Form.jsx";
 
 export default function App() {
-  function onAddActivity({ activityInput, isForGoodWeather }) {
+  function onAddActivity(data) {
     console.log(
       "activityInput:",
-      activityInput,
+      data.activity,
       "isForGoodWeather:",
-      isForGoodWeather
+      data.isForGoodWeather
     );
   }
   return (
