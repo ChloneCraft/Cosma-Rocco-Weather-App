@@ -1,9 +1,9 @@
-export default function Form({ onAddActivity }) {
+export default function Form({ handleAddActivity }) {
   function handleSubmitData(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    onAddActivity(data);
+    handleAddActivity(data);
     event.target.reset();
     document.getElementById("activityInput").focus();
   }
