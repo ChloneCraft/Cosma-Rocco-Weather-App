@@ -1,5 +1,8 @@
 // eslint-disable-next-line react/prop-types
-export default function List({ activities, isGoodWeather }) {
+export default function List({ activities, isGoodWeather, changeActivities }) {
+  function handleDelete(id) {
+    changeActivities(activities.filter((activity) => activity.id !== id));
+  }
   try {
     const goodWeatherActivities = activities.filter(
       (activity) => activity.isForGoodWeather
@@ -13,7 +16,10 @@ export default function List({ activities, isGoodWeather }) {
         <h2>Bad Weather</h2>
         <ul>
           {badWeatherActivities.map((activity) => (
-            <li key={activity.id}>{activity.activityText}</li>
+            <li key={activity.id}>
+              <p>{activity.activityText}</p>
+              <button onClick={() => handleDelete(activity.id)}>Delete</button>
+            </li>
           ))}
         </ul>
       </>
@@ -22,12 +28,15 @@ export default function List({ activities, isGoodWeather }) {
         <h2>Good Weather</h2>
         <ul>
           {goodWeatherActivities.map((activity) => (
-            <li key={activity.id}>{activity.activityText}</li>
+            <li key={activity.id}>
+              <p>{activity.activityText}</p>
+              <button onClick={() => handleDelete(activity.id)}>Delete</button>
+            </li>
           ))}
         </ul>
       </>
     );
   } catch (e) {
-    return [null];
+    console.error(e);
   }
 }

@@ -15,6 +15,9 @@ export default function App() {
   function changeWeather(newWeatherStatus) {
     setIsGoodWeather(newWeatherStatus);
   }
+  function changeActivities(newArray) {
+    setActivities(newArray);
+  }
 
   function handleAddActivity({ activityInput, isForGoodWeather }) {
     const newActivity = {
@@ -27,7 +30,11 @@ export default function App() {
   }
   return (
     <>
-      <List activities={activities} isGoodWeather={isGoodWeather}></List>
+      <List
+        activities={activities}
+        isGoodWeather={isGoodWeather}
+        changeActivities={changeActivities}
+      ></List>
       <Form handleAddActivity={handleAddActivity} />
       <WeatherComponent changeWeather={changeWeather} />
     </>
