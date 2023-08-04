@@ -1,5 +1,18 @@
 import "./App.css";
+import Form from "./components/Form/Form.jsx";
 
 export default function App() {
-  return <></>;
+  function onAddActivity({ activityInput, isForGoodWeather }) {
+    console.log(
+      "activityInput:",
+      activityInput,
+      "isForGoodWeather:",
+      isForGoodWeather
+    );
+  }
+  return (
+    <>
+      <Form onAddActivity={onAddActivity} />
+    </>
+  );
 }
