@@ -4,15 +4,12 @@ import { useState } from "react";
 import { uid } from "uid";
 
 export default function App() {
-
+  const [isGoodWeather, setIsGoodWeather] = useState(true);
   const [activities, setActivities] = useState([]);
-  function handleAddActivity({ activityInput, isForGoodWeather }) {
 
-    console.log(
-      "activityInput:",
-      data.activity,
-      "isForGoodWeather:",
-      data.isForGoodWeather
+  function handleAddActivity({ activityInput, isForGoodWeather }) {
+    const goodWeatherActivities = activities.filter(
+      (activity) => activity.isForGoodWeather
     );
     const newActivity = {
       id: uid(),
