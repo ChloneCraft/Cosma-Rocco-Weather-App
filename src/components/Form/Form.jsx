@@ -1,16 +1,13 @@
+
+export default function Form({ handleAddActivity }) {
+
 import "./Form.css";
-// eslint-disable-next-line react/prop-types
-export default function Form({ onAddActivity }) {
+
   function handleSubmitData(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
-    const isForGoodWeather =
-      document.getElementById("isForGoodWeather").checked;
-    onAddActivity({
-      activity: data.activityInput,
-      isForGoodWeather: isForGoodWeather,
-    });
+    handleAddActivity(data);
     event.target.reset();
     document.getElementById("activityInput").focus();
   }
