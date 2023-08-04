@@ -3,18 +3,18 @@ import Form from "./components/Form/Form.jsx";
 import { useState } from "react";
 import { uid } from "uid";
 import List from "./components/List /List";
-import WeatherComponent from "./components/Fetch/Fetch";
+import WeatherComponent from "./components/Fetch/WeatherComponent";
 import useLocalStorageState from "use-local-storage-state";
 
-
 export default function App() {
-  const [isGoodWeather, setIsGoodWeather] = useLocalStorageState(
-    "isGoodWeather",
-    { defaultValue: true }
-  );
+  const [isGoodWeather, setIsGoodWeather] = useState(true);
   const [activities, setActivities] = useLocalStorageState("activities", {
     defaultValue: [],
   });
+
+  function changeWeather(newWeatherStatus) {
+    setIsGoodWeather(newWeatherStatus);
+  }
 
   function handleAddActivity({ activityInput, isForGoodWeather }) {
     const newActivity = {
@@ -29,7 +29,7 @@ export default function App() {
     <>
       <List activities={activities} isGoodWeather={isGoodWeather}></List>
       <Form handleAddActivity={handleAddActivity} />
-      <WeatherComponent />
+      <WeatherComponent changeWeather={changeWeather} />
     </>
   );
 }
