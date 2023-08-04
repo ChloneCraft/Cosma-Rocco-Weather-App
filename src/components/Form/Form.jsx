@@ -1,7 +1,7 @@
-
+import "./Form.css";
 export default function Form({ handleAddActivity }) {
 
-import "./Form.css";
+
 
   function handleSubmitData(event) {
     event.preventDefault();
