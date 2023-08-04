@@ -1,8 +1,6 @@
 import "./Form.css";
+// eslint-disable-next-line react/prop-types
 export default function Form({ handleAddActivity }) {
-
-
-
   function handleSubmitData(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
