@@ -1,3 +1,5 @@
+import "./List.css";
+
 // eslint-disable-next-line react/prop-types
 export default function List({ activities, isGoodWeather, changeActivities }) {
   function handleDelete(id) {
@@ -13,24 +15,36 @@ export default function List({ activities, isGoodWeather, changeActivities }) {
 
     return !isGoodWeather ? (
       <>
-        <h2>Bad Weather</h2>
+        <h2>
+          Bad Weather outside! <br /> Here`&apos;`s what you can do:
+        </h2>
         <ul>
           {badWeatherActivities.map((activity) => (
             <li key={activity.id}>
               <p>{activity.activityText}</p>
-              <button onClick={() => handleDelete(activity.id)}>Delete</button>
+              <button
+                className="list-button"
+                onClick={() => handleDelete(activity.id)}>
+                ❌
+              </button>
             </li>
           ))}
         </ul>
       </>
     ) : (
       <>
-        <h2>Good Weather</h2>
+        <h2>
+          The weather is awesome! <br /> Go outside and:
+        </h2>
         <ul>
           {goodWeatherActivities.map((activity) => (
             <li key={activity.id}>
               <p>{activity.activityText}</p>
-              <button onClick={() => handleDelete(activity.id)}>Delete</button>
+              <button
+                className="list-button"
+                onClick={() => handleDelete(activity.id)}>
+                ❌
+              </button>
             </li>
           ))}
         </ul>

@@ -15,7 +15,13 @@ export default function Form({ handleAddActivity }) {
       <h2 className="activityForm__title">Add new activity:</h2>
       <div className="activityForm__activityBar">
         <label htmlFor="activityInput">Name:</label>
-        <input type="text" id="activityInput" name="activityInput" />
+        <input
+          type="text"
+          id="activityInput"
+          name="activityInput"
+          minLength={3}
+          maxLength={33}
+        />
       </div>
       <div className="activityForm__activityBar">
         <label htmlFor="isForGoodWeather">Good-weather activity:</label>

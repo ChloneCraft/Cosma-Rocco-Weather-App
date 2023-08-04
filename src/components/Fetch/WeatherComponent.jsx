@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./WeatherComponent.css";
 
 // eslint-disable-next-line react/prop-types
 export default function WeatherComponent({ changeWeather }) {
@@ -42,11 +43,9 @@ export default function WeatherComponent({ changeWeather }) {
   }, [changeWeather]);
 
   return (
-    <div>
-      <h1>Weather Data</h1>
-      <ul>{weatherData.location}</ul>
-      <ul>{weatherData.condition}</ul>
-      <ul>{weatherData.temperature}</ul>
+    <div className="weatherBox">
+      <ul className="emoji">{weatherData.condition}</ul>
+      <ul className="temperature">{weatherData.temperature} °C</ul>
     </div>
   );
 }
