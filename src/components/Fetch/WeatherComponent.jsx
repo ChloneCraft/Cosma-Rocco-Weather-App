@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 export default function WeatherComponent({ changeWeather }) {
   const [weatherData, setWeatherData] = useState({ condition: "Loading..." });
 
   useEffect(() => {
-    async function startFetching() {
+    let isMounted = true;
+
+    async function fetchWeather() {
       try {
         const response = await fetch(
           "https://example-apis.vercel.app/api/weather"
@@ -14,17 +17,29 @@ export default function WeatherComponent({ changeWeather }) {
           setWeatherData("Loading...");
           throw new Error("Failed to fetch weather data");
         }
+
         const weather = await response.json();
         console.log(weather);
-        changeWeather(weather.isGoodWeather);
-        setWeatherData(weather);
+
+        if (isMounted) {
+          changeWeather(weather.isGoodWeather);
+          setWeatherData(weather);
+        }
       } catch (error) {
         console.error("Error fetching weather data:", error);
       }
     }
 
-    startFetching();
-  }, []);
+    fetchWeather();
+
+    const intervalId = setInterval(fetchWeather, 5000);
+
+    console.log(fetchWeather);
+    return () => {
+      isMounted = false;
+      clearInterval(intervalId);
+    };
+  }, [changeWeather]);
 
   return (
     <div>
