@@ -3,7 +3,9 @@ import Form from "./components/Form/Form.jsx";
 import { useState } from "react";
 import { uid } from "uid";
 import List from "./components/List /List";
+import WeatherComponent from "./components/Fetch/Fetch";
 import useLocalStorageState from "use-local-storage-state";
+
 
 export default function App() {
   const [isGoodWeather, setIsGoodWeather] = useLocalStorageState(
@@ -27,6 +29,7 @@ export default function App() {
     <>
       <List activities={activities} isGoodWeather={isGoodWeather}></List>
       <Form handleAddActivity={handleAddActivity} />
+      <WeatherComponent />
     </>
   );
 }
