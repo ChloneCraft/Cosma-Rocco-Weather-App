@@ -14,41 +14,43 @@ export default function List({ activities, isGoodWeather, changeActivities }) {
     );
 
     return !isGoodWeather ? (
-      <>
+      <section className="list-box-bad-weather">
         <h2>
-          Bad Weather outside! <br /> Here`&apos;`s what you can do:
+          Bad Weather outside! <br /> Here&apos;s what you can do:
         </h2>
-        <ul>
+        <ul className="list-container">
           {badWeatherActivities.map((activity) => (
-            <li key={activity.id}>
+            <li className="activity" key={activity.id}>
               <p>{activity.activityText}</p>
               <button
                 className="list-button"
                 onClick={() => handleDelete(activity.id)}>
-                ❌
+                ✖️
               </button>
             </li>
           ))}
+          <div className="space"></div>
         </ul>
-      </>
+      </section>
     ) : (
-      <>
+      <section className="list-box-good-weather">
         <h2>
           The weather is awesome! <br /> Go outside and:
         </h2>
-        <ul>
+        <ul className="list-container">
           {goodWeatherActivities.map((activity) => (
-            <li key={activity.id}>
+            <li className="activity" key={activity.id}>
               <p>{activity.activityText}</p>
               <button
                 className="list-button"
                 onClick={() => handleDelete(activity.id)}>
-                ❌
+                ✖️
               </button>
             </li>
           ))}
+          <div className="space"></div>
         </ul>
-      </>
+      </section>
     );
   } catch (e) {
     console.error(e);

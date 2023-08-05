@@ -1,5 +1,53 @@
 .list-button {
-  font-size: 20px;
+  font-size: 30px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: inherit;
+  transition: transform 0.5s ease-in-out;
+}
+
+.list-button:hover {
+  transform: rotate(360deg);
+}
+
+.list-box-good-weather,
+.list-box-bad-weather {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.activity {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 300px;
   padding: 10px;
   border-radius: 10px;
+  margin: 10px;
+  padding-left: 15px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.activity:hover {
+  background-color: #e3e3e3;
+}
+
+.list-container {
+  height: 420px;
+  width: 320px;
+  overflow: auto;
+  float: left;
+  margin-left: -5px;
+}
+
+.space {
+  width: 100%;
+  height: 75px;
 }

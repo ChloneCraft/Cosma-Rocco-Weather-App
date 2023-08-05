@@ -1,23 +1,55 @@
-.activityForm {
+.activity-form {
+  height: 250px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   gap: 15px;
-  margin: 20px;
-  left: 50%;
-  top: 50%;
-}
-
-.activityForm__activityBar {
+  margin-top: 20px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 200px;
+  position: fixed;
+  bottom: 60px;
+  background: linear-gradient(
+    to bottom,
+    rgba(173, 216, 230, 0) 0%,
+    lightblue 15%
+  );
 }
 
-.activityForm__submit-button {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid black;
+.activity-form__new-activity {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.activity-form__activity-bar {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.activity-form__submit-button {
+  background-color: white;
+  width: 100px;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease-in-out;
+  font-family: "Poppins", sans-serif;
+}
+
+.activity-form__submit-button:hover {
+  background-color: #e3e3e3;
+}
+
+#activityInput {
+  background-color: white;
+  width: 300px;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  outline: none;
 }

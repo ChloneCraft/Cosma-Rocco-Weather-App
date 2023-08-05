@@ -20,7 +20,6 @@ export default function WeatherComponent({ changeWeather }) {
         }
 
         const weather = await response.json();
-        console.log(weather);
 
         if (isMounted) {
           changeWeather(weather.isGoodWeather);
@@ -35,9 +34,7 @@ export default function WeatherComponent({ changeWeather }) {
 
     const intervalId = setInterval(fetchWeather, 5000);
 
-    console.log(fetchWeather);
     return () => {
-      isMounted = false;
       clearInterval(intervalId);
     };
   }, [changeWeather]);
