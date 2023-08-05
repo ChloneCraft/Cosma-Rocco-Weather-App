@@ -5,10 +5,9 @@
 .weatherBox {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   align-content: center;
   gap: 15px;
-  margin: 20px;
-  left: 50%;
-  top: 50%;
+  margin: 30px;
 }

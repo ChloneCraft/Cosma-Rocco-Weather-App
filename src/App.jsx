@@ -25,17 +25,16 @@ export default function App() {
       activityText: activityInput,
       isForGoodWeather: isForGoodWeather,
     };
-    console.log(activities);
     setActivities([...activities, newActivity]);
   }
   return (
-    <>
+    <section>
       <WeatherComponent changeWeather={changeWeather} />
       <List
         activities={activities}
         isGoodWeather={isGoodWeather}
         changeActivities={changeActivities}></List>
       <Form handleAddActivity={handleAddActivity} />
-    </>
+    </section>
   );
 }
