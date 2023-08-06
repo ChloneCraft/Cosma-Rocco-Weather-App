@@ -20,7 +20,7 @@ export default function Form({ handleAddActivity }) {
           id="activityInput"
           name="activityInput"
           minLength="3"
-          maxLength="20"
+          maxLength="40"
           placeholder="Type here..."
         />
       </div>
