@@ -22,7 +22,7 @@ export default function Form({ handleAddActivity, isGoodWeather }) {
           id="activityInput"
           name="activityInput"
           minLength="3"
-          maxLength="20"
+          maxLength="60"
           placeholder="Type here..."
         />
       </div>
