@@ -1,6 +1,7 @@
 import "./Form.css";
+import { colorForBackground } from "../../App.jsx";
 // eslint-disable-next-line react/prop-types
-export default function Form({ handleAddActivity }) {
+export default function Form({ handleAddActivity, isGoodWeather }) {
   function handleSubmitData(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -9,6 +10,7 @@ export default function Form({ handleAddActivity }) {
     event.target.reset();
     document.getElementById("activityInput").focus();
   }
+  // document.getElementById("activity-form").style.backgroundColor = "yellosw";
 
   return (
     <form className="activity-form" onSubmit={handleSubmitData}>
