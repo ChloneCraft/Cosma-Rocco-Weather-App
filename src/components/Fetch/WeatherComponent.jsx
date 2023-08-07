@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "./WeatherComponent.css";
 
 // eslint-disable-next-line react/prop-types
-export default function WeatherComponent({ changeWeather }) {
+export default function WeatherComponent({
+  changeWeather,
+  setColorForBackground,
+}) {
   const [weatherData, setWeatherData] = useState(null);
-  // const [temperatureDisplay, setTemperatureDisplay] = useState("");
 
   useEffect(() => {
     let isMounted = true;
@@ -25,10 +27,10 @@ export default function WeatherComponent({ changeWeather }) {
 
         if (isMounted) {
           changeWeather(weather.isGoodWeather);
+          // changeWeather(false);
           setWeatherData(weather);
           if (weather.temperature) {
             console.log(weather);
-            // setTemperatureDisplay(weatherData.temperature + "°C");
           }
         }
       } catch (error) {

@@ -6,6 +6,8 @@ import List from "./components/List /List";
 import WeatherComponent from "./components/Fetch/WeatherComponent";
 import useLocalStorageState from "use-local-storage-state";
 
+export let colorForBackground = "lightblue";
+
 export default function App() {
   const [isGoodWeather, setIsGoodWeather] = useState(null);
   const [isData, setIsData] = useState(null);
@@ -13,10 +15,12 @@ export default function App() {
     defaultValue: [],
   });
 
-  const style = {
-    goodStyle: { backgroundColor: "yellow" },
-    badStyle: { backgroundColor: "lightblue" },
-  };
+  function setColorForBackground(newColor) {
+    colorForBackground = newColor;
+    console.log(colorForBackground);
+  }
+
+  setColorForBackground(isGoodWeather ? "rgb(238, 238, 30)" : "lightblue");
 
   function changeWeather(newWeatherStatus) {
     setIsGoodWeather(newWeatherStatus);
@@ -35,8 +39,11 @@ export default function App() {
     setActivities([newActivity, ...activities]);
   }
   return (
-    <section>
-      <WeatherComponent changeWeather={changeWeather} />
+    <section style={{ backgroundColor: colorForBackground }}>
+      <WeatherComponent
+        changeWeather={changeWeather}
+        setColorForBackground={setColorForBackground}
+      />
       {isData && (
         <List
           activities={activities}
@@ -44,7 +51,10 @@ export default function App() {
           changeActivities={changeActivities}
         ></List>
       )}
-      <Form handleAddActivity={handleAddActivity} />
+      <Form
+        handleAddActivity={handleAddActivity}
+        isGoodWeather={isGoodWeather}
+      />
     </section>
   );
 }
