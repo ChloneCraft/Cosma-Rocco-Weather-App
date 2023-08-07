@@ -10,4 +10,6 @@
   align-content: center;
   gap: 15px;
   margin: 30px;
+  z-index: 999;
+  width: 100vw;
 }
